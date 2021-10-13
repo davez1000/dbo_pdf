@@ -1,0 +1,20 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
+/**
+ * @file
+ * Contains dbo_pdf.module.
+ */
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function dbo_pdf_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  $renderer = \Drupal::service('renderer');
+  $renderer->addCacheableDependency($build, $entity->id());
+}

@@ -1,0 +1,14 @@
+services:
+  dbo_pdf.route_subscriber:
+    class: Drupal\dbo_pdf\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+  dbo_pdf.print_builder:
+    class: Drupal\dbo_pdf\Service\DboPrintBuilder
+    arguments:
+      [ '@entity_print.renderer_factory', '@event_dispatcher', '@string_translation' ]
+#    arguments: [ '@entity_type.manager' ]
+  dbo_pdf.post_render_alter:
+    class: Drupal\dbo_pdf\EventSubscriber\PostRenderAlter
+    tags:
+      - { name: event_subscriber }

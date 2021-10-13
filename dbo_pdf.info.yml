@@ -1,0 +1,7 @@
+name: 'DBO PDF'
+type: module
+description: 'Additional PDF generation functionality.'
+core_version_requirement: ^8 || ^9
+package: 'Custom'
+dependencies:
+  - entity_print

@@ -1,0 +1,5 @@
+services:
+  dbo_pdf.commands:
+    class: \Drupal\dbo_pdf\Commands\DboPdfCommands
+    tags:
+      - { name: drush.command }
